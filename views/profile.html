@@ -30,23 +30,44 @@
         <section class="main-section">
           <h1>Profile</h1>
 
-          <form id="contact-form">
+          <form method="post" id="contact-form" onsubmit="submitForm()" action="profile" data-jkit="[form:validationonly=true]">
+
             <ul>
               <li>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Cher Shedd" required="required">
               </li>
               <li>
-                <label for="image">Profile Photo:</label>
-                <input type="image" id="image" name="image" src="./public/assets/img/profile.jpg" required="required">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required="required">
               </li>
-
               <li>
                 <label for="message">Description:</label>
-                <textarea id="message" name="message" required="required">    </textarea>
+                <textarea id="message" name="message" placeholder="Write a few words about yourself..." required="required">    </textarea>
               </li>
             </ul>
             <input type="submit">
+
+
+            <!-- UPDATE FORM SUBMIT -->
+            <script>
+
+            function submitForm() {
+              var frm = document.getElementById('contact-form');
+              var formData = {
+                name: frm.name.value,
+                email: frm.email.value,
+                message: frm.message.value
+              };
+              $.post('profile', formData).then(function () {
+                frm.reset();
+              })
+              return false;
+            }
+
+            </script>
+
+
           </form>
 
         </section>    
@@ -58,18 +79,6 @@
             <a href="http://localhost:3000/logout" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Logout</a>
           </div>
       </div> 
-
-
-      <!-- SIDEBAR CONNECT -->
-      <section class="sidebar">
-          <div id="connect">
-            <h2>Connect with Me</h2>
-
-            <img src="../public/assets/img/github.png" class="social" alt="Github">
-            <img src="public/assets/img/linkedin.png" class="social" alt="LinkedIn">
-            <img src="./public/assets/img/stackoverflow.png" class="social" alt="Stack Overflow">
-          </div>
-        </section>
 
 
       </div> 

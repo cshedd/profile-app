@@ -43,7 +43,7 @@ app.get("/", function(req,res){
 
 app.get("/profile", function(req,res){
 	res.header('Access-Control-Allow-Credentials', true);
-	console.log("am i authenticated?",req.isAuthenticated());
+	console.log("am i authenticated?", req.isAuthenticated());
 	res.render("profile", user);
 });
 
@@ -68,6 +68,24 @@ app.get("/logout", function(req, res){
 		req.logout();
 		console.log("am i logedd out", req.user)
 		res.redirect("/")
+});
+
+// POST FOR UPDATE TO PROFILE
+app.post('/profile', function(req, res) {
+
+	console.log(req.body);
+
+	var Update = require('./models/Update');
+
+	var newUpdate = new Update(req.body);
+	newUpdate.save(function(err, doc) {
+		if(err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			res.send(doc);
+		}
+	});
 });
 
 // MONGO CONNECTION =================================
