@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+
+    <title>Profile App</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style-profile.css">
+
+</head>
+<body>
+
+      <!-- NAV SECTION -->
+      <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">Profile App</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+      </nav>    
+
+
+      <!-- PROFILE CONTENT -->
+      <div id="main-container" class="container">
+        <section class="main-section">
+          <h1>Profile</h1>
+
+          <form id="contact-form">
+            <ul>
+              <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Cher Shedd" required="required">
+              </li>
+              <li>
+                <label for="image">Profile Photo:</label>
+                <input type="image" id="image" name="image" src="./public/assets/img/profile.jpg" required="required">
+              </li>
+
+              <li>
+                <label for="message">Description:</label>
+                <textarea id="message" name="message" required="required">    </textarea>
+              </li>
+            </ul>
+            <input type="submit">
+          </form>
+
+        </section>    
+
+
+      <!-- lOGOUT BUTTON -->
+      <div>
+          <div class="row center">
+            <a href="http://localhost:3000/logout" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Logout</a>
+          </div>
+      </div> 
+
+
+      <!-- SIDEBAR CONNECT -->
+      <section class="sidebar">
+          <div id="connect">
+            <h2>Connect with Me</h2>
+
+            <img src="../public/assets/img/github.png" class="social" alt="Github">
+            <img src="public/assets/img/linkedin.png" class="social" alt="LinkedIn">
+            <img src="./public/assets/img/stackoverflow.png" class="social" alt="Stack Overflow">
+          </div>
+        </section>
+
+
+      </div> 
+
+      <!-- FOOTER -->
+     <footer>
+        <div class="container">
+          &copy; Copyright 2016 Coding Challenge
+        </div>
+      </footer>      
+ 
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+      
+    
+</body>
+</html>     
