@@ -31,7 +31,7 @@ module.exports = function(passport) {
 
 	// 2. CHECKING FOR USER, IF FINDS CALLDONE AND PASSES IN USER OBJECT THATS CALLED BACK, IF FINDS USER (USER, ERR) IS WHAT POPULATES DB
 	// 3. THEN CALLS DONE
-	function(token, refreshToken, profile, done) {
+	function(accesstoken, refreshToken, profile, done) {
 		// asynchronous verification
 		process.nextTick(function() {
 			User.findOne( {username : profile.username  }).then(function (user, err) {

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 
-    <title>Profile App</title>
+    <title>Profile IG App</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
@@ -19,7 +19,7 @@
       <!-- NAV SECTION -->
       <nav class="white" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">Profile App</a>
+                <a id="logo-container" href="#" class="brand-logo">Profile IG App</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
       </nav>    
@@ -30,7 +30,7 @@
         <section class="main-section">
           <h1>Profile</h1>
 
-          <form method="post" id="contact-form" onsubmit="submitForm()" action="profile" data-jkit="[form:validationonly=true]">
+          <form id="contact-form">
 
             <ul>
               <li>
@@ -43,14 +43,14 @@
               </li>
               <li>
                 <label for="message">Description:</label>
-                <textarea id="message" name="message" placeholder="Write a few words about yourself..." required="required">    </textarea>
+                <textarea id="message" name="message" placeholder="" required="required">    </textarea>
               </li>
             </ul>
             <input type="submit">
 
 
-            <!-- UPDATE FORM SUBMIT -->
-            <script>
+            <!-- RESET FORM AFTER SUBMIT  / COULD HAVE FORM ACTION POST & ONSUBMIT, "SUBMITFORM()" -->
+        <!--     <script>
 
             function submitForm() {
               var frm = document.getElementById('contact-form');
@@ -59,14 +59,13 @@
                 email: frm.email.value,
                 message: frm.message.value
               };
-              $.post('profile', formData).then(function () {
+              // $.post('profile', formData).then(function () {
                 frm.reset();
-              })
+              // })
               return false;
             }
 
-            </script>
-
+            </script> -->
 
           </form>
 
