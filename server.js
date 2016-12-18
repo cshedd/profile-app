@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var cheerio = require('cheerio');
 var passport = require('passport');
-// var session = require("express-session");
+var session = require("express-session");
 
 // ==================================================
 var PORT = 3000;
