@@ -20,7 +20,6 @@ module.exports = function(passport) {
 
 	// required for persistent login
 	// passport needs ability to serialize and deserialize users out of session
-
 	passport.use(new InstagramStrategy({
 		clientID: "4b4a7f9e8c7b41a6b09a0bc811159979",
 		clientSecret: "5c40602d4e004ec39c6f74483a618f57",

@@ -28,21 +28,27 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/public'));
 
+
+// FOR MONGODB SESSION
+// app.use(session({
+//     secret: '1234',
+//     store: new MongoStore({
+//       db: 'heroku_l5n8hd2h',
+//       collection: 'sessions',
+//       host: 'localhost',
+//       port: 27017,
+//       auto_reconnect:true
+//     }),
+//     cookie: {maxAge: 900000}
+// }));
+
 // PASSPORT
 app.use(session({
 	resave: true,
 	saveUninitialized: false,
 	secret: '1234'
-}),
-	store: new MongoStore({
-		db: 'heroku_l5n8hd2h',
-		collection: 'sessions',
-		host: 'localhost',
-		port: 27017,
-		auto_reconnect: true
-	}),
-	cookie: { maxAge: 900000 }
-);
+}));
+
 
 require('./config/passport')(passport);
 app.use(passport.initialize());
