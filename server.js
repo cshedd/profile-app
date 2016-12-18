@@ -7,7 +7,7 @@ var passport = require('passport');
 var session = require("express-session");
 
 // ==================================================
-var PORT = process.env.PORT || 3000;
+var PORT = 3000;
 mongoose.Promise = Promise;
 var app = express();
 
@@ -74,8 +74,9 @@ app.get("/logout", function(req, res){
 // MONGO CONNECTION =================================
 // var MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/profileDB';
 
-mongoose.connect(
 
+mongoose.connect(
+	
 				// 'mongodb://heroku_l5n8hd2h:hgp3ti46o7mr6mlo9hi9s7096e@ds039010.mlab.com:39010/heroku_l5n8hd2h'
 				'mongodb://localhost/profileDB'
 
