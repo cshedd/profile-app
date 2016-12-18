@@ -78,12 +78,16 @@ app.get("/logout", function(req, res){
 mongoose.connect(
 
 				'mongodb://heroku_l5n8hd2h:hgp3ti46o7mr6mlo9hi9s7096e@ds039010.mlab.com:39010/heroku_l5n8hd2h'
+				// 'mongodb://localhost/profileDB'
 
 	);
+
 var db = mongoose.connection;
 
-app.listen(process.env.PORT || 3000);
-console.log("Listening on port", PORT);
+app.listen(process.env.PORT || 3000, function() {
+	console.log("Listening on port", this.address().port, app.settings.env);
+
+});
 
 // once logged in to the db through mongoose, log a success message
 db.once('open', function() {
