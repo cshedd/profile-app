@@ -5,6 +5,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 var passport = require('passport');
 var session = require("express-session");
+var connect = require('connect');
+var MongoStore = require('connect-mongo')(session);
+
+
 
 // ==================================================
 var PORT = 3000;
@@ -29,7 +33,17 @@ app.use(session({
 	resave: true,
 	saveUninitialized: false,
 	secret: '1234'
-}));
+}),
+	store: new MongoStore({
+		db: 'heroku_l5n8hd2h',
+		collection: 'sessions',
+		host: 'localhost',
+		port: 27017,
+		auto_reconnect: true
+	}),
+	cookie: { maxAge: 900000 }
+);
+
 require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
