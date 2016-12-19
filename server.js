@@ -5,8 +5,8 @@ var request = require('request');
 var cheerio = require('cheerio');
 var passport = require('passport');
 var session = require("express-session");
-var connect = require('connect');
-var MongoStore = require('connect-mongo')(session);
+// var connect = require('connect');
+// var MongoStore = require('connect-mongo')(session);
 
 
 
@@ -28,19 +28,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/public'));
 
-
-// FOR MONGODB SESSION
-// app.use(session({
-//     secret: '1234',
-//     store: new MongoStore({
-//       db: 'heroku_l5n8hd2h',
-//       collection: 'sessions',
-//       host: 'localhost',
-//       port: 27017,
-//       auto_reconnect:true
-//     }),
-//     cookie: {maxAge: 900000}
-// }));
 
 // PASSPORT
 app.use(session({
@@ -92,10 +79,10 @@ app.get("/logout", function(req, res){
 
 
 // MONGO CONNECTION =================================
-var MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/profileDB';
+// var MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/profileDB';
 
 
-mongoose.connect(MONGO_URI);
+mongoose.connect('mongodb://localhost/profileDB');
 var db = mongoose.connection;
 
 app.listen(process.env.PORT || 3000);
