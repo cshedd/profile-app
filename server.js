@@ -1,12 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 var request = require('request');
 var cheerio = require('cheerio');
 var passport = require('passport');
 var session = require("express-session");
-var connect = require('connect');
-var MongoStore = require('connect-mongo')(session);
+// var connect = require('connect');
+// var MongoStore = require('connect-mongo')(session);
 
 
 
@@ -25,6 +26,8 @@ app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+app.use(cookieParser());
 
 app.use(express.static(__dirname + '/public'));
 
